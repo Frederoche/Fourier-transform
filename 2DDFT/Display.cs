@@ -5,28 +5,35 @@ namespace _2DDFT
 {
     public class Display
     {
-        public static Bitmap ReadImage(string path)
+        public int Size { get; set; }
+        
+        public Display(int size)
+        {
+            Size = size;
+        }
+
+        public  Bitmap ReadImage(string path)
         {
             return new Bitmap(Image.FromFile(path));
         }
 
-        public static void Picture(float[,] transform, string path)
+        public  void Picture(float[,] transform, string path)
         {
-            var image = new Bitmap(256, 256);
+            var image = new Bitmap(Size, Size);
 
             var max = 0.0;
-            for (var i = 0; i < 256; i++)
+            for (var i = 0; i < Size; i++)
             {
-                for (var j = 0; j < 256; j++)
+                for (var j = 0; j < Size; j++)
                 {
                     if (max < transform[i, j])
                         max = transform[i, j];
                 }
             }
 
-            for (var l = 0; l < 256; l++)
+            for (var l = 0; l < Size; l++)
             {
-                for (var k = 0; k < 256; k++)
+                for (var k = 0; k < Size; k++)
                 {
                     var pixelValue = transform[l, k];
                     var color = Color.FromArgb((int)(pixelValue / max * 255), (int)(pixelValue / max * 255), (int)(pixelValue / max * 255));
@@ -37,15 +44,15 @@ namespace _2DDFT
         }
 
         //FROM JAGGED ARRAY TO MUTIDIMENTIONAL ARRAY 
-        public static void Magnitude(Complex[,] transform, string path)
+        public  void Magnitude(Complex[,] transform, string path)
         {
-            Complex[][] floatTransform = new Complex[256][];
+            Complex[][] floatTransform = new Complex[Size][];
 
-            for (var i = 0; i < 256; i++)
+            for (var i = 0; i < Size; i++)
             {
-                floatTransform[i] = new Complex[256];
+                floatTransform[i] = new Complex[Size];
 
-                for (var j = 0; j < 256; j++)
+                for (var j = 0; j < Size; j++)
                 {
                     floatTransform[i][j] = transform[i,j];
                 }
@@ -54,33 +61,33 @@ namespace _2DDFT
             Magnitude(floatTransform, path);
         }
 
-        public static void Magnitude(Complex[][] transform, string path)
+        public  void Magnitude(Complex[][] transform, string path)
         {
-            float[,] floatTransform = new float[256, 256];
+            float[,] floatTransform = new float[Size, Size];
 
-            for (var i = 0; i < 256; i++)
+            for (var i = 0; i < Size; i++)
             {
-                for (var j = 0; j < 256; j++)
+                for (var j = 0; j < Size; j++)
                 {
                     floatTransform[i, j] = Complex.Modulus(transform[i][j]);
                 }
             }
 
             var max = 0.0;
-            for (var i = 0; i < 256; i++)
+            for (var i = 0; i < Size; i++)
             {
-                for (var j = 0; j < 256; j++)
+                for (var j = 0; j < Size; j++)
                 {
                     if (max < floatTransform[i, j])
                         max = floatTransform[i, j];
                 }
             }
 
-            var image = new Bitmap(256, 256);
+            var image = new Bitmap(Size, Size);
 
-            for (var l = 0; l < 256; l++)
+            for (var l = 0; l < Size; l++)
             {
-                for (var k = 0; k < 256; k++)
+                for (var k = 0; k < Size; k++)
                 {
                     var pixelValue = Math.Log10(1 + floatTransform[l, k]) * 255 / Math.Log10(1 + max);
                     var color = Color.FromArgb((int)pixelValue, (int)pixelValue, (int)pixelValue);

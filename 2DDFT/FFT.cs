@@ -1,36 +1,24 @@
 ﻿using System;
-using System.Drawing;
 
 namespace _2DDFT
 {
     public class FFT
     {
-        public static Complex[][] ToComplex(Bitmap image)
+        public int Size { get; set; }
+
+        public FFT(int size)
         {
-            var result = new Complex[image.Width][];
-
-            for (var i = 0; i < image.Width; i++)
-            {
-                result[i] = new Complex[image.Width];
-
-                for (var j = 0; j < image.Height; j++)
-                {
-                    var pixel = new Complex(image.GetPixel(i, j).R, 0);
-
-                    result[i][j] = pixel;
-                }
-            }
-            return result;
+            Size = size;
         }
 
-        public static Complex[] FFT1DInv(Complex[] input)
+        public  Complex[] Inverse(Complex[] input)
         {
             for (int i = 0; i < input.Length; i++)
             {
                 input[i] = Complex.Conjugate(input[i]);
             }
 
-            var transform = FFT1D(input);
+            var transform = Forward(input);
 
             for (int i = 0; i < input.Length; i++)
             {
@@ -39,7 +27,7 @@ namespace _2DDFT
             return transform;
         }
 
-        public static Complex[] FFT1D(Complex[] input)
+        public  Complex[] Forward(Complex[] input)
         {
             var result = new Complex[input.Length];
             var omega = (float)(-2.0 * Math.PI / input.Length);
@@ -59,8 +47,8 @@ namespace _2DDFT
                 oddInput[i]  = input[2 * i + 1];
             }
 
-            var even = FFT1D(evenInput);
-            var odd  = FFT1D(oddInput);
+            var even = Forward(evenInput);
+            var odd  = Forward(oddInput);
 
             for (var k = 0; k < input.Length/2; k++)
             {

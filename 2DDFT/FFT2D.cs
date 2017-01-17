@@ -6,36 +6,59 @@ namespace _2DDFT
 {
     public class FFT2D : FFT
     {
-        public static float[,] Inverse(Complex[][] inputComplex)
+        public FFT2D(int size): base(size)
         {
-            var p = new Complex[256][];
-            var f = new Complex[256][];
-            var t = new Complex[256][];
+            
+        }
 
-            var floatImage = new float[256, 256];
+        public Complex[][] ToComplex(Bitmap image)
+        {
+            var result = new Complex[Size][];
+
+            for (var i = 0; i < Size; i++)
+            {
+                result[i] = new Complex[Size];
+
+                for (var j = 0; j < Size; j++)
+                {
+                    var pixel = new Complex(image.GetPixel(i, j).R, 0);
+
+                    result[i][j] = pixel;
+                }
+            }
+            return result;
+        }
+
+        public float[,] Inverse(Complex[][] inputComplex)
+        {
+            var p = new Complex[Size][];
+            var f = new Complex[Size][];
+            var t = new Complex[Size][];
+
+            var floatImage = new float[Size, Size];
 
             //CALCULATE P
-            for (var l = 0; l < 256; l++)
+            for (var l = 0; l < Size; l++)
             {
-                p[l] = FFT1DInv(inputComplex[l]);
+                p[l] = Inverse(inputComplex[l]);
             }
 
             //TRANSPOSE AND COMPUTE
-            for (var l = 0; l < 256; l++)
+            for (var l = 0; l < Size; l++)
             {
-                t[l] = new Complex[256];
+                t[l] = new Complex[Size];
 
-                for (var k = 0; k < 256; k++)
+                for (var k = 0; k < Size; k++)
                 {
                     t[l][k] = p[k][l];
                 }
 
-                f[l] = FFT1DInv(t[l]);
+                f[l] = Inverse(t[l]);
             }
 
-            for (var k = 0; k < 256; k++)
+            for (var k = 0; k < Size; k++)
             {
-                for (var l = 0; l < 256; l++)
+                for (var l = 0; l < Size; l++)
                 {
                     floatImage[k, l] = Math.Abs(f[k][l].Real);
                 }
@@ -43,32 +66,32 @@ namespace _2DDFT
             return floatImage;
         }
 
-        public static Complex[][] Forward(Bitmap image)
+        public Complex[][] Forward(Bitmap image)
         {
-            var p = new Complex[image.Width][];
-            var f = new Complex[image.Width][];
-            var t = new Complex[image.Width][];
+            var p = new Complex[Size][];
+            var f = new Complex[Size][];
+            var t = new Complex[Size][];
 
             //CONVERT TO COMPLEX NUMBERS
             var complexImage = ToComplex(image);
 
             //CALCULATE P
-            for (var l = 0; l < image.Width; l++)
+            for (var l = 0; l < Size; l++)
             {
-                p[l] = FFT1D(complexImage[l]);
+                p[l] = Forward(complexImage[l]);
             }
 
             //TANSPOSE AND COMPUTE
-            for (var l = 0; l < image.Width; l++)
+            for (var l = 0; l < Size; l++)
             {
-                t[l] = new Complex[image.Width];
+                t[l] = new Complex[Size];
 
-                for (var k = 0; k < image.Width; k++)
+                for (var k = 0; k < Size; k++)
                 {
                     t[l][k] = p[k][l];
                 }
 
-                f[l] = FFT1D(t[l]);
+                f[l] = Forward(t[l]);
             }
 
             return f;
