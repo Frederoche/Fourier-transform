@@ -4,6 +4,7 @@ A simple implementation of the fourier transform:
   - The naive 2D DFT implementation
   - The 1D FFT implementation
   - the 2D FFT based on the 1D FFT and its respective inverse.
+  - it works as it is now for squared 256x256 images.
   
 
 MIT License
