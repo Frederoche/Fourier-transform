@@ -27,7 +27,7 @@ namespace _2DDFT
             Console.WriteLine("--------------------Ending FFT---------------------");
             Console.WriteLine("--------------------Beging FFTInv------------------");
 
-            var result = Filters.OneOnFBeta(transform2);
+            var result = new Filters(256).OneOnFBeta(transform2);
 
             var transform3 = fft2D.Inverse(result);
             display.Picture(transform3, "C:\\tmp\\transform3.jpg");

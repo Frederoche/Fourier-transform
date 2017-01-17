@@ -43,8 +43,8 @@ namespace _2DDFT
             image.Save(path);
         }
 
-        //FROM JAGGED ARRAY TO MUTIDIMENTIONAL ARRAY 
-        public  void Magnitude(Complex[,] transform, string path)
+        //FROM MUTIDIMENTIONAL ARRAY TO JAGGED ARRAY 
+        public void Magnitude(Complex[,] transform, string path)
         {
             Complex[][] floatTransform = new Complex[Size][];
 
