@@ -12,7 +12,7 @@ namespace _2DDFT
             Size = size;
         }
 
-        public  Bitmap ReadImage(string path)
+        public Bitmap ReadImage(string path)
         {
             return new Bitmap(Image.FromFile(path));
         }

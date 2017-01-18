@@ -1,5 +1,6 @@
 ﻿using System;
 
+
 namespace _2DDFT
 {
     public class FFT
@@ -52,8 +53,7 @@ namespace _2DDFT
 
             for (var k = 0; k < input.Length/2; k++)
             {
-                var tmp = Complex.Polar(1, omega * k);
-                odd[k] *= tmp;
+                odd[k] *= Complex.Polar(1, omega * k);
             }
 
             for (var k = 0; k < input.Length / 2; k++)

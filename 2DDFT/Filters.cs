@@ -10,7 +10,7 @@ namespace _2DDFT
         {
             Size = size;
         }
-        public  Complex[][] OneOnFBeta(Complex[][] complex)
+        public  Complex[][] ButterWorthLowPassFilter(Complex[][] complex) //DO NOT WORK
         {
             var result = new Complex[Size][];
 
@@ -20,10 +20,13 @@ namespace _2DDFT
 
                 for (var j = 0; j < Size; j++)
                 {
-                    var d = Math.Sqrt((i - 128)*(i - 128)/ Size + (j - 128)*(j - 128)/ Size);
-                    d = d < 1.0/256 ? 1.0/ Size : d;
+                    var d = Math.Sqrt((i) * (i) + (j)*(j));
 
-                    result[i][j] = complex[i][j] * (float)( 1.0 / Math.Pow(d, 1.3));
+                    var h = 1/((1 + 2*d/Size)*(1 + 2*d/Size * (1 + 2 * d /Size)));
+
+                    
+
+                    result[i][j] = complex[i][j] * (float)h;
                 }
             }
             return result;

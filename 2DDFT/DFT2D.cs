@@ -22,7 +22,7 @@ namespace _2DDFT
 
                     for (var a = 0; a < image.Width; a++)
                     {
-                        p += image.GetPixel(a, b).R * Complex.Polar(1, omega * (k - image.Width / 2) * a);
+                        p += image.GetPixel(a, b).R * Complex.Polar(1, omega * (k - image.Width / 2) * a); //Phase Shifted
                     }
 
                     P[k, b] = p;

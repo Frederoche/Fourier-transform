@@ -3,3 +3,4 @@ C:\Users\frekri\Documents\Visual Studio 2015\Projects\2DDFT\2DDFT\bin\Debug\2DDF
 C:\Users\frekri\Documents\Visual Studio 2015\Projects\2DDFT\2DDFT\bin\Debug\2DDFT.pdb
 C:\Users\frekri\Documents\Visual Studio 2015\Projects\2DDFT\2DDFT\obj\Debug\2DDFT.exe
 C:\Users\frekri\Documents\Visual Studio 2015\Projects\2DDFT\2DDFT\obj\Debug\2DDFT.pdb
+C:\Users\frekri\Documents\Visual Studio 2015\Projects\2DDFT\2DDFT\obj\Debug\2DDFT.csprojResolveAssemblyReference.cache
