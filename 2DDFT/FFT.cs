@@ -19,7 +19,7 @@ namespace _2DDFT
                 input[i] = Complex.Conjugate(input[i]);
             }
 
-            var transform = Forward(input);
+            var transform = Forward(input, false);
 
             for (int i = 0; i < input.Length; i++)
             {
@@ -28,7 +28,7 @@ namespace _2DDFT
             return transform;
         }
 
-        public  Complex[] Forward(Complex[] input)
+        public  Complex[] Forward(Complex[] input, bool phaseShift = true)
         {
             var result = new Complex[input.Length];
             var omega = (float)(-2.0 * Math.PI / input.Length);
@@ -48,12 +48,19 @@ namespace _2DDFT
                 oddInput[i]  = input[2 * i + 1];
             }
 
-            var even = Forward(evenInput);
-            var odd  = Forward(oddInput);
+            var even = Forward(evenInput, phaseShift);
+            var odd  = Forward(oddInput,  phaseShift);
+
+            var phase = 0;
 
             for (var k = 0; k < input.Length/2; k++)
             {
-                odd[k] *= Complex.Polar(1, omega * k);
+                if (phaseShift)
+                    phase = k - Size/2;
+                else
+                    phase = k;
+
+                odd[k] *= Complex.Polar(1, omega * phase);
             }
 
             for (var k = 0; k < input.Length / 2; k++)

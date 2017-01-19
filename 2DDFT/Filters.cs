@@ -10,7 +10,7 @@ namespace _2DDFT
         {
             Size = size;
         }
-        public  Complex[][] ButterWorthLowPassFilter(Complex[][] complex) //DO NOT WORK
+        public  Complex[][] ButterWorthLowPassFilter(Complex[][] complex) 
         {
             var result = new Complex[Size][];
 
@@ -20,17 +20,17 @@ namespace _2DDFT
 
                 for (var j = 0; j < Size; j++)
                 {
-                    var d = Math.Sqrt((i) * (i) + (j)*(j));
+                    var d = Math.Sqrt((i- Size/2) * (i-Size/2)/ Size + (j-Size/2)*(j-Size/2) / Size );
 
-                    var h = 1/((1 + 2*d/Size)*(1 + 2*d/Size * (1 + 2 * d /Size)));
+                    d = d < 1.0/Size ? 1.0 / Size : d;
 
-                    
-
-                    result[i][j] = complex[i][j] * (float)h;
+                    result[i][j] = complex[i][j] * (float)(1.0f / Math.Pow(d, 1.2));
                 }
             }
             return result;
         }
+
+        
     }
     
 }

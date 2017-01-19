@@ -50,7 +50,7 @@ namespace _2DDFT
 
                 for (var k = 0; k < Size; k++)
                 {
-                    t[l][k] = p[k][l];
+                    t[l][k] = p[k][l] / (Size * Size);
                 }
 
                 f[l] = Inverse(t[l]);
@@ -88,13 +88,13 @@ namespace _2DDFT
 
                 for (var k = 0; k < Size; k++)
                 {
-                    t[l][k] = p[k][l];
+                    t[l][k] = p[k][l] ;
                 }
 
                 f[l] = Forward(t[l]);
             }
 
-            return f;
+            return f ;
         }
     }
 }
