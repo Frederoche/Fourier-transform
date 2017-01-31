@@ -60,7 +60,7 @@ namespace _2DDFT
             {
                 for (var l = 0; l < Size; l++)
                 {
-                    floatImage[k, l] = Math.Abs(f[k][l].Real);
+                    floatImage[k, l] = Complex.Modulus(f[k][l]); //Math.Abs(f[k][l].Real);
                 }
             }
             return floatImage;

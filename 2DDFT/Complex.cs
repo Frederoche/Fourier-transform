@@ -72,5 +72,10 @@ namespace _2DDFT
         {
             return new Complex(a/b.Real, a/b.Imaginary);
         }
+
+        public static bool isNaN(Complex a)
+        {
+            return float.IsNaN(a.Imaginary) || float.IsNaN(a.Real);
+        }
     }
 }

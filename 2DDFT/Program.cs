@@ -6,11 +6,26 @@ namespace _2DDFT
     {
         static void Main(string[] args)
         {
+            var display = new Display(256);
+
+            var fft2D = new FFT2D(256);
+
             Console.WriteLine("--------------------2DDFT--------------------------");
             var whiteNoise = new WhiteNoise(256, 256,1);
             var bitmap = whiteNoise.Create("C:\\tmp\\whitenoise.jpg");
+            
+            var phillips = new Phillips(256,256,1);
+            var phillipsSepctrum = phillips.Create();
+
+            display.Magnitude(phillipsSepctrum, "C:\\tmp\\phillips.jpg");
+
+            var transform4 = fft2D.Inverse(phillipsSepctrum);
+
+
+            display.Picture(transform4, "C:\\tmp\\transform4.jpg");
+
             Console.WriteLine("--------------------Read Image---------------------");
-            var display = new Display(256);
+            
 
             var bitmap2 = display.ReadImage("C:\\tmp\\cln1.gif");
 
@@ -20,7 +35,7 @@ namespace _2DDFT
             Console.WriteLine("--------------------Ending DDFT--------------------");*/
 
             Console.WriteLine("--------------------Beginning FFT------------------");
-            var fft2D = new FFT2D(256);
+            
 
             var transform2 = fft2D.Forward(bitmap2);
             display.Magnitude(transform2, "C:\\tmp\\transform2.jpg");
