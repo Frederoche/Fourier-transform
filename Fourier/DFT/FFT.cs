@@ -36,7 +36,7 @@ namespace Fourier.DFT
             {
                 result[0] = input[0];
 
-                if (Complex.isNaN(result[0]))
+                if (Complex.IsNaN(result[0]))
                 {
                     return new [] {new Complex(0,0)};
                 }

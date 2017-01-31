@@ -73,7 +73,7 @@ namespace Fourier
             return new Complex(a/b.Real, a/b.Imaginary);
         }
 
-        public static bool isNaN(Complex a)
+        public static bool IsNaN(Complex a)
         {
             return float.IsNaN(a.Imaginary) || float.IsNaN(a.Real);
         }
