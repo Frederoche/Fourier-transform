@@ -10,3 +10,6 @@ C:\Users\frekri\Desktop\Fourier-transform\2DDFT\obj\Debug\2DDFT.pdb
 C:\Users\frekri\Desktop\Fourier-transform\2DDFT\bin\Debug\2DDFT.exe
 C:\Users\frekri\Desktop\Fourier-transform\2DDFT\bin\Debug\2DDFT.pdb
 C:\Users\frekri\Desktop\Fourier-transform\2DDFT\obj\Debug\2DDFT.csprojResolveAssemblyReference.cache
+C:\Users\frekri\Desktop\Fourier-transform\2DDFT\bin\Debug\Pictures\lena.gif
+C:\Users\frekri\Desktop\Fourier-transform\2DDFT\bin\Debug\Fourier.dll
+C:\Users\frekri\Desktop\Fourier-transform\2DDFT\bin\Debug\Fourier.pdb

@@ -4,17 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3E2120CA-A60F-456F-B219-B774D92EB9E2}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{350FD904-FDD2-4A8C-BDFC-079962D03900}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>_2DDFT</RootNamespace>
-    <AssemblyName>2DDFT</AssemblyName>
+    <RootNamespace>Fourier</RootNamespace>
+    <AssemblyName>Fourier</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -44,27 +41,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="Complex.cs" />
+    <Compile Include="Distributions.cs" />
+    <Compile Include="Filter\Filters.cs" />
+    <Compile Include="DFT\DFT2D.cs" />
+    <Compile Include="DFT\Display.cs" />
+    <Compile Include="DFT\FFT.cs" />
+    <Compile Include="DFT\FFT2D.cs" />
+    <Compile Include="Noise\WhiteNoise.cs" />
+    <Compile Include="Phillips\Phillips.cs" />
+    <Compile Include="Phillips\PhillipsParameters.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Fourier\Fourier.csproj">
-      <Project>{350fd904-fdd2-4a8c-bdfc-079962d03900}</Project>
-      <Name>Fourier</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Pictures\filteredImageWithButterWorth.jpg" />
-    <Content Include="Pictures\Inversetransform.jpg" />
-    <EmbeddedResource Include="Pictures\lena.gif">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <Content Include="Pictures\phillipsSpatialDomain.jpg" />
-    <Content Include="Pictures\phillipsSpectrum.jpg" />
-    <Content Include="Pictures\SpectrumForwardTransform.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

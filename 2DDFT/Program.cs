@@ -1,21 +1,24 @@
 ﻿using System;
 using System.Drawing;
-using _2DDFT.Fourier;
-using _2DDFT.Noise;
+using Fourier;
+using Fourier.DFT;
+using Fourier.Filter;
+using Fourier.Noise;
 
 namespace _2DDFT
 {
     class Program
     {
+        private static readonly string Path = AppDomain.CurrentDomain.BaseDirectory;
         static Bitmap GenerateWhiteNoise()
         {
             var whiteNoise = new WhiteNoise(256, 1);
-            return whiteNoise.Create("C:\\tmp\\whitenoise.jpg");
+            return whiteNoise.Create($"{Path}\\whitenoise.jpg");
         }
 
         static Complex[][] GeneratePhillipsSpectrum()
         {
-            var phillips = new Phillips.Phillips(256, 1);
+            var phillips = new Fourier.Phillips.Phillips(256, 1);
             return phillips.Create();
         }
 
@@ -25,19 +28,19 @@ namespace _2DDFT
             var whitenoise = GenerateWhiteNoise();
 
             //PHILLIPS SPECTRUM FREQUENCY AND SPATIAL DOMAIN
-            var phillipsSpectrum = GeneratePhillipsSpectrum().Magnitude("C:\\tmp\\phillipsSpectrum.jpg");
-            new FFT2D(256).Inverse(phillipsSpectrum).ToPicture("C:\\tmp\\phillipsSpatialDomain.jpg");
+            var phillipsSpectrum = GeneratePhillipsSpectrum().Magnitude($"{Path}\\phillipsSpectrum.jpg");
+            new FFT2D(256).Inverse(phillipsSpectrum).ToPicture($"{Path}\\phillipsSpatialDomain.jpg");
 
             //BUTTERWORTH FILTERING IN FREQUESNCY DOMAIN
-            var bitmap2 = Display.ReadImage("C:\\tmp\\lena.gif");
+            var bitmap2 = Display.ReadImage($"{Path}\\Pictures\\lena.gif");
 
-            var transform2 = new FFT2D(256).Forward(bitmap2).Magnitude("C:\\tmp\\SpectrumForwardTransform.jpg");
+            var transform2 = new FFT2D(256).Forward(bitmap2).Magnitude($"{Path}\\SpectrumForwardTransform.jpg");
             
             var result = new Filters(256).ButterWorthLowPassFilter(transform2);
 
-            result.Magnitude("C:\\tmp\\filteredImageWithButterWorth.jpg");
+            result.Magnitude($"{Path}\\filteredImageWithButterWorth.jpg");
 
-            new FFT2D(256).Inverse(result).ToPicture("C:\\tmp\\Inversetransform.jpg");
+            new FFT2D(256).Inverse(result).ToPicture($"{Path}\\Inversetransform.jpg");
         }
     }
 }

@@ -1,0 +1,9 @@
+C:\Users\frekri\Desktop\Fourier-transform\2DDFT\bin\Release\2DDFT.exe.config
+C:\Users\frekri\Desktop\Fourier-transform\2DDFT\bin\Release\Pictures\lena.gif
+C:\Users\frekri\Desktop\Fourier-transform\2DDFT\bin\Release\2DDFT.exe
+C:\Users\frekri\Desktop\Fourier-transform\2DDFT\bin\Release\2DDFT.pdb
+C:\Users\frekri\Desktop\Fourier-transform\2DDFT\bin\Release\Fourier.dll
+C:\Users\frekri\Desktop\Fourier-transform\2DDFT\bin\Release\Fourier.pdb
+C:\Users\frekri\Desktop\Fourier-transform\2DDFT\obj\Release\2DDFT.csprojResolveAssemblyReference.cache
+C:\Users\frekri\Desktop\Fourier-transform\2DDFT\obj\Release\2DDFT.exe
+C:\Users\frekri\Desktop\Fourier-transform\2DDFT\obj\Release\2DDFT.pdb

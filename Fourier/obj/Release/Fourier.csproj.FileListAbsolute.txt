@@ -1,0 +1,4 @@
+C:\Users\frekri\Desktop\Fourier-transform\Fourier\bin\Release\Fourier.dll
+C:\Users\frekri\Desktop\Fourier-transform\Fourier\bin\Release\Fourier.pdb
+C:\Users\frekri\Desktop\Fourier-transform\Fourier\obj\Release\Fourier.dll
+C:\Users\frekri\Desktop\Fourier-transform\Fourier\obj\Release\Fourier.pdb
