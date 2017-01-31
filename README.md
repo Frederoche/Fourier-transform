@@ -6,7 +6,7 @@ A simple implementation of the fourier transform:
   - the 2D FFT based on the 1D FFT and its respective inverse.
   - it works as it is now for squared 256x256 images.
 
-<img src="https://github.com/Frederoche/Fourier-transform/2DDFT/master/Pictures/Inversetransform.jpg" width="256">
+<img src="https://github.com/Frederoche/Fourier-transform/blob/master/Pictures/Inversetransform.jpg" width="256">
 
 
 
