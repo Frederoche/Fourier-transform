@@ -3,10 +3,10 @@
 A simple implementation of the fourier transform with:
   - The naive 2D DFT implementation
   - The 1D FFT implementation
-  - the 2D FFT based on the 1D FFT and its respective inverse
-  - the butterworth lowpass filter
+  - The 2D FFT based on the 1D FFT and its respective inverse
+  - The butterworth lowpass filter
   - Phillips spectrum 
-  - it works as it is now for squared images
+  - It works as it is now for squared images
 
 <img src="https://github.com/Frederoche/Fourier-transform/blob/master/2DDFT/Pictures/Inversetransform.jpg" width="128">
 <img src="https://github.com/Frederoche/Fourier-transform/blob/master/2DDFT/Pictures/SpectrumForwardTransform.jpg" width="128">
@@ -14,14 +14,14 @@ A simple implementation of the fourier transform with:
 <img src="https://github.com/Frederoche/Fourier-transform/blob/master/2DDFT/Pictures/phillipsSpatialDomain.jpg" width="128">
 <img src="https://github.com/Frederoche/Fourier-transform/blob/master/2DDFT/Pictures/phillipsSpectrum.jpg" width="128">
 
-```cs
+<pre><code class='highlight highlight-source-cs"'>
 var fft = new FFT2D(256);
 var spectrum = fft.Forward(image);
 
-//APPLY FILTER
+//APPLY ANY KIND OF FILTER
 
 fft.Inverse(spectrum).ToPicture("path to picture");
-```
+</code></pre>
 
 MIT License
 
