@@ -1,6 +1,6 @@
 # Fourier-transform
 
-A simple implementation of the fourier transform with:
+A simple C# implementation of the fourier transform with:
   - The naive 2D DFT implementation
   - The 1D FFT implementation
   - The 2D FFT based on the 1D FFT and its respective inverse
