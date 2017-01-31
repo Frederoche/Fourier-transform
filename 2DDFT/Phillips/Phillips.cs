@@ -1,38 +1,36 @@
 ﻿using System;
 
-namespace _2DDFT
+namespace _2DDFT.Phillips
 {
     public class Phillips : Distributions
     {
-        public int Width { get; set; }
-        public int Height { get; set; }
+        public int Size { get; set; }
 
-        public Phillips(int height, int width, int seed) : base(seed)
+        public Phillips(int size, int seed) : base(seed)
         {
-            Height = height;
-            Width = width;
+            Size = size;
         }
 
         public Complex[][] Create()
         {
-            var result = new float[256][];
-            var complexResult = new Complex[256][];
+            var result = new float[Size][];
+            var complexResult = new Complex[Size][];
 
             float max = 0;
 
-            for (var i = 0; i < Width; i++)
+            for (var i = 0; i < Size; i++)
             {
-                result[i] = new float[Width];
-                complexResult[i] = new Complex[Width];
+                result[i] = new float[Size];
+                complexResult[i] = new Complex[Size];
 
-                for (var j = 0; j < Height; j++)
+                for (var j = 0; j < Size; j++)
                 {
                     var parameter = new PhillipsParameter
                     {
                         K = new K
                         {
-                            Kx = (float) (2.0 * Math.PI / Width) * (-Width/2 + i),
-                            Ky = (float) (2.0 * Math.PI / Width) * (-Width/2 + j)
+                            Kx = (float) (2.0 * Math.PI / Size) * (-Size/2 + i),
+                            Ky = (float) (2.0 * Math.PI / Size) * (-Size/2 + j)
                         },
                         WindDirection = new WindDirection
                         {

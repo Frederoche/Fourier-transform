@@ -1,39 +1,34 @@
 ﻿using System;
 using System.Drawing;
 
-namespace _2DDFT
+namespace _2DDFT.Fourier
 {
-    public class Display
+    public static class Display
     {
-        public int Size { get; set; }
-        
-        public Display(int size)
-        {
-            Size = size;
-        }
-
-        public Bitmap ReadImage(string path)
+        public static Bitmap ReadImage(string path)
         {
             return new Bitmap(Image.FromFile(path));
         }
 
-        public  void Picture(float[,] transform, string path)
+        public static void ToPicture(this float[,] transform, string path)
         {
-            var image = new Bitmap(Size, Size);
+            var size = transform.GetLength(1);
+
+            var image = new Bitmap(size, size);
 
             var max = 0.0;
-            for (var i = 0; i < Size; i++)
+            for (var i = 0; i < size; i++)
             {
-                for (var j = 0; j < Size; j++)
+                for (var j = 0; j < size; j++)
                 {
                     if (max < transform[i, j])
                         max = transform[i, j];
                 }
             }
 
-            for (var l = 0; l < Size; l++)
+            for (var l = 0; l < size; l++)
             {
-                for (var k = 0; k < Size; k++)
+                for (var k = 0; k < size; k++)
                 {
                     var pixelValue = transform[l, k];
                     var color = Color.FromArgb((int)(pixelValue / max * 255), (int)(pixelValue / max * 255), (int)(pixelValue / max * 255));
@@ -44,15 +39,17 @@ namespace _2DDFT
         }
 
         //FROM MUTIDIMENTIONAL ARRAY TO JAGGED ARRAY 
-        public void Magnitude(Complex[,] transform, string path)
+        public static void Magnitude(this Complex[,] transform, string path)
         {
-            Complex[][] floatTransform = new Complex[Size][];
+            var size = transform.GetLength(1);
 
-            for (var i = 0; i < Size; i++)
+            Complex[][] floatTransform = new Complex[size][];
+
+            for (var i = 0; i < size; i++)
             {
-                floatTransform[i] = new Complex[Size];
+                floatTransform[i] = new Complex[size];
 
-                for (var j = 0; j < Size; j++)
+                for (var j = 0; j < size; j++)
                 {
                     floatTransform[i][j] = transform[i,j];
                 }
@@ -61,13 +58,15 @@ namespace _2DDFT
             Magnitude(floatTransform, path);
         }
 
-        public  void Magnitude(Complex[][] transform, string path)
+        public static Complex[][] Magnitude(this Complex[][] transform, string path)
         {
-            float[,] floatTransform = new float[Size, Size];
+            var size = transform.Length;
 
-            for (var i = 0; i < Size; i++)
+            float[,] floatTransform = new float[size, size];
+
+            for (var i = 0; i < size; i++)
             {
-                for (var j = 0; j < Size; j++)
+                for (var j = 0; j < size; j++)
                 {
                     floatTransform[i, j] = Complex.Modulus(transform[i][j]);
                 }
@@ -75,20 +74,20 @@ namespace _2DDFT
 
             var max = 0.0;
 
-            for (var i = 0; i < Size; i++)
+            for (var i = 0; i < size; i++)
             {
-                for (var j = 0; j < Size; j++)
+                for (var j = 0; j < size; j++)
                 {
                     if (max < floatTransform[i, j])
                         max = floatTransform[i, j];
                 }
             }
 
-            var image = new Bitmap(Size, Size);
+            var image = new Bitmap(size, size);
 
-            for (var l = 0; l < Size; l++)
+            for (var l = 0; l < size; l++)
             {
-                for (var k = 0; k < Size; k++)
+                for (var k = 0; k < size; k++)
                 {
                     var pixelValue = Math.Log10(1 + floatTransform[l, k]) * 255 / Math.Log10(1 + max);
 
@@ -101,6 +100,7 @@ namespace _2DDFT
                 }
             }
             image.Save(path);
+            return transform;
         }
     }
 }

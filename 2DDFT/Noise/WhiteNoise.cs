@@ -1,26 +1,24 @@
 ﻿using System.Drawing;
 using System.Drawing.Imaging;
 
-namespace _2DDFT
+namespace _2DDFT.Noise
 {
     public class WhiteNoise : Distributions
     {
-        public int Height { get; set; }
-        public int Width  { get; set; }
+        public int Size { get; set; }
         
-        public WhiteNoise(int height, int width, int seed) : base(seed)
+        public WhiteNoise(int size, int seed) : base(seed)
         {
-            Height = height;
-            Width = width;
+            Size = size;
         }
 
         public Bitmap Create(string filePath)
         {
-            var bitmap = new Bitmap(Width, Height);
+            var bitmap = new Bitmap(Size, Size);
 
-            for(var i = 0; i < Width; i++)
+            for(var i = 0; i < Size; i++)
             {
-                for (var j = 0; j < Height; j++)
+                for (var j = 0; j < Size; j++)
                 {
                     var pixelValue = Rand();
                     

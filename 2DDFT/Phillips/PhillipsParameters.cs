@@ -1,4 +1,4 @@
-﻿namespace _2DDFT
+﻿namespace _2DDFT.Phillips
 {
     public class WindDirection
     {

@@ -1,7 +1,6 @@
 ﻿using System;
 
-
-namespace _2DDFT
+namespace _2DDFT.Fourier
 {
     public class FFT
     {
@@ -17,7 +16,6 @@ namespace _2DDFT
             for (int i = 0; i < input.Length; i++)
             {
                 input[i] = Complex.Conjugate(input[i]);
-                
             }
 
             var transform = Forward(input, false);

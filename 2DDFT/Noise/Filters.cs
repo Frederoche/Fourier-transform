@@ -1,7 +1,6 @@
 ﻿using System;
 
-
-namespace _2DDFT
+namespace _2DDFT.Noise
 {
     public class Filters
     {

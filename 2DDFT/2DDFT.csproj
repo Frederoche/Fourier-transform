@@ -44,21 +44,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DFT2D.cs" />
+    <Compile Include="Fourier\DFT2D.cs" />
     <Compile Include="Complex.cs" />
-    <Compile Include="Display.cs" />
+    <Compile Include="Fourier\Display.cs" />
     <Compile Include="Distributions.cs" />
-    <Compile Include="FFT.cs" />
-    <Compile Include="FFT2D.cs" />
-    <Compile Include="Filters.cs" />
-    <Compile Include="PhillipsParameters.cs" />
-    <Compile Include="Phillips.cs" />
+    <Compile Include="Fourier\FFT.cs" />
+    <Compile Include="Fourier\FFT2D.cs" />
+    <Compile Include="Noise\Filters.cs" />
+    <Compile Include="Phillips\PhillipsParameters.cs" />
+    <Compile Include="Phillips\Phillips.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WhiteNoise.cs" />
+    <Compile Include="Noise\WhiteNoise.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Filter\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

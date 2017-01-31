@@ -1,8 +1,6 @@
-﻿using System;
-using System.Drawing;
+﻿using System.Drawing;
 
-
-namespace _2DDFT
+namespace _2DDFT.Fourier
 {
     public class FFT2D : FFT
     {
