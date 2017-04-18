@@ -1,0 +1,9 @@
+C:\Users\frekri\Desktop\Fourier-transform\FourierTestProject\bin\Debug\FourierTestProject.dll
+C:\Users\frekri\Desktop\Fourier-transform\FourierTestProject\bin\Debug\FourierTestProject.pdb
+C:\Users\frekri\Desktop\Fourier-transform\FourierTestProject\bin\Debug\Fourier.dll
+C:\Users\frekri\Desktop\Fourier-transform\FourierTestProject\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\frekri\Desktop\Fourier-transform\FourierTestProject\bin\Debug\Fourier.pdb
+C:\Users\frekri\Desktop\Fourier-transform\FourierTestProject\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.xml
+C:\Users\frekri\Desktop\Fourier-transform\FourierTestProject\obj\Debug\FourierTestProject.csprojResolveAssemblyReference.cache
+C:\Users\frekri\Desktop\Fourier-transform\FourierTestProject\obj\Debug\FourierTestProject.dll
+C:\Users\frekri\Desktop\Fourier-transform\FourierTestProject\obj\Debug\FourierTestProject.pdb

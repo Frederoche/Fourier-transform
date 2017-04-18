@@ -2,3 +2,4 @@ C:\Users\frekri\Desktop\Fourier-transform\Fourier\bin\Debug\Fourier.dll
 C:\Users\frekri\Desktop\Fourier-transform\Fourier\bin\Debug\Fourier.pdb
 C:\Users\frekri\Desktop\Fourier-transform\Fourier\obj\Debug\Fourier.dll
 C:\Users\frekri\Desktop\Fourier-transform\Fourier\obj\Debug\Fourier.pdb
+C:\Users\frekri\Desktop\Fourier-transform\Fourier\obj\Debug\Fourier.csprojResolveAssemblyReference.cache
